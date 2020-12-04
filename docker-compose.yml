@@ -13,3 +13,7 @@ services:
     volumes: 
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - $DATABASE_DATA_PATH:/data/db
+  app:
+    image: 'dw'
+    container_name: 'app'
+    restart: 'always'
