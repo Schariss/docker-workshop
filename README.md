@@ -8,6 +8,7 @@ Avoir
   - Mac : https://docs.docker.com/docker-for-mac/install/
 - (optionnel) Avoir n'importe qu'elle version de dotnet core, ou la version aspnet core 5 pour utiliser l'exemple.
   - https://dotnet.microsoft.com/download/dotnet-core (win, linux, mac)
+- (optionnel) Avoir git
 
 Vérifier vos installations avec :
 ```
