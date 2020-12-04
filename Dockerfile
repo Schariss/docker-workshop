@@ -6,4 +6,4 @@ COPY . .
 
 RUN dotnet restore
 
-CMD [ "dotnet", "run", "--configuration", "Release" ]
+CMD [ "dotnet", "run", "add", "Nouveau livre !", "5" ]

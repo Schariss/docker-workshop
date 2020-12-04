@@ -16,7 +16,7 @@ namespace mongo_docker_sample
             string action = args.Length > 0
                 ? args[0]
                 : "";
-            string MongoDBConnectionString = $"mongodb://{DatabaseUser}:{DatabasePawd}@localhost:27017/?authSource=admin";
+            string MongoDBConnectionString = $"mongodb://{DatabaseUser}:{DatabasePawd}@database:27017/?authSource=admin";
 
             var Service = new BookService(MongoDBConnectionString, DatabaseName);
 
