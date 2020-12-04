@@ -16,6 +16,13 @@ docker-compose -v
 dotnet --list-sdks
 dotnet --list-runtimes
 ```
+## Comment faire ce workshop ?
+Vous devez suivre les étapes incluses dans le fichier steps.txt.
+Vous pouvez faire la commande 
+```
+git checkout <no de l'étape>
+```
+Pour aller directement à une étape ou alors si vous êtes bloqué.
 
 ## Démmarrer
 ```bash
