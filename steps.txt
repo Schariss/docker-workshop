@@ -1,7 +1,8 @@
 1 - Configuration de l'image mongo
 2 - Création d'un stockage local
-3 - Création d'un réseau virtuel privé
-4 - Création de l'application C# local
-5 - Conteneurisation de l'application C#
-6 - Publication de notre image docker sur Docker-Hub ou Azure container registry
-7 - ...
+3 - Création de l'application C# local
+4 - Conteneurisation de l'application C#
+5 - Ajout de l'application dans le docker-compose
+6 - Création d'un réseau virtuel privé
+7 - Publication de notre image docker sur Docker-Hub ou Azure container registry
+8 - ...
