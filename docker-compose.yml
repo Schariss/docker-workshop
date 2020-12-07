@@ -13,5 +13,3 @@ services:
     volumes: 
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - $DATABASE_DATA_PATH:/data/db
-    # networks: 
-    #   - backend
