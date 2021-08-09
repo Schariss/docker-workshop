@@ -1,0 +1,4 @@
+# Commencer à écrire ici le docker-compose de votre image mongo
+# Liens utiles : 
+  # https://docs.docker.com/compose/reference/
+  # https://hub.docker.com/_/mongo
