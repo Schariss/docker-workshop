@@ -7,7 +7,8 @@
 # - AWS : https://aws.amazon.com/fr/ecr/
 # - IBM Watson : https://www.ibm.com/fr-fr/cloud/container-registry/features
 
-# Lien utile :
+# Liens utiles :
+# - https://docs.docker.com/engine/reference/commandline/login/
 # - https://docs.docker.com/engine/reference/commandline/push/
 FROM mcr.microsoft.com/dotnet/sdk:5.0
 
