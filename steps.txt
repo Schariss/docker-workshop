@@ -5,5 +5,4 @@ master - Configuration de l'image mongo
 4 - Création d'un réseau virtuel privé
 5 - Publication de notre image docker sur Docker-Hub ou Azure container registry
 6 - Construction automatique de notre image via Github Actions
-7 - Ajouter SonarQube dans notre pipeline
-8 - ...
+7 - ...
