@@ -6,6 +6,7 @@ namespace mongo_docker_sample
 {
     class Program
     {
+
         static string DatabaseName = Environment.GetEnvironmentVariable("DATABASE_NAME");
         static string DatabaseUser = Environment.GetEnvironmentVariable("DATABASE_USERNAME");
         static string DatabasePwd = Environment.GetEnvironmentVariable("DATABASE_PASSWORD");
