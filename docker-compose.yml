@@ -8,10 +8,10 @@ services:
       - MONGO_INITDB_DATABASE=$DATABASE_NAME
       - MONGO_INITDB_ROOT_USERNAME=$DATABASE_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD=$DATABASE_PASSWORD
-    ports: 
-      - '27017:27017'
     volumes: 
       - $DATABASE_DATA_PATH:/data/db
+    networks:
+      - backend
   app:
     image: 'myapp'
     container_name: 'app'
@@ -21,10 +21,8 @@ services:
       - DATABASE_USERNAME=$DATABASE_USERNAME
       - DATABASE_PASSWORD=$DATABASE_PASSWORD
       - DATABASE_HOST=$DATABASE_HOST
-    # Créer ici un réseau virtuel
-    # Mettez un des deux services dans votre réseaux virtuel privé puis laissez l'autres en dehors de ce réseau
-    # Lancer vos conteneurs avec docker-compose up
-    # Tenter de créer un book et constater une erreur de communication entre app et database
-    # Ajoutez votre autre container dans votre nouveau réseau virtuel privé
-    # Retentez de créer un book et constatez une réussite
-    # Retirer l'exposition des ports de votre service de base de donné
+    networks:
+      - backend
+
+networks:
+  backend:
