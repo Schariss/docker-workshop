@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   database:
-    image: 'mongo'
+    image: 'mongo:4.4.8'
     container_name: 'mongoDB'
     restart: always
     environment: 
@@ -9,18 +9,20 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=$DATABASE_USERNAME
       - MONGO_INITDB_ROOT_PASSWORD=$DATABASE_PASSWORD
     volumes: 
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - $DATABASE_DATA_PATH:/data/db
-    networks: 
+    networks:
       - backend
   app:
-    depends_on: 
-      - database
-    image: 'dw'
+    image: 'myapp'
     container_name: 'app'
-    restart: 'always'
-    networks: 
+    restart: always
+    environment:
+      - DATABASE_NAME=$DATABASE_NAME
+      - DATABASE_USERNAME=$DATABASE_USERNAME
+      - DATABASE_PASSWORD=$DATABASE_PASSWORD
+      - DATABASE_HOST=$DATABASE_HOST
+    networks:
       - backend
 
-networks: 
+networks:
   backend:
