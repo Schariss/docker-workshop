@@ -7,16 +7,17 @@ namespace mongo_docker_sample
     class Program
     {
 
-        static string DatabaseName = "gl_db";
-        static string DatabaseUser = "gl_admin";
-        static string DatabasePawd = "gl_pwd";
+        static string DatabaseName = Environment.GetEnvironmentVariable("DATABASE_NAME");
+        static string DatabaseUser = Environment.GetEnvironmentVariable("DATABASE_USERNAME");
+        static string DatabasePwd = Environment.GetEnvironmentVariable("DATABASE_PASSWORD");
+        static string DatabaseHost = Environment.GetEnvironmentVariable("DATABASE_HOST");
 
         static void Main(string[] args)
         {
             string action = args.Length > 0
                 ? args[0]
                 : "";
-            string MongoDBConnectionString = $"mongodb://{DatabaseUser}:{DatabasePawd}@localhost:27017/?authSource=admin";
+            string MongoDBConnectionString = $"mongodb://{DatabaseUser}:{DatabasePwd}@{DatabaseHost}:27017/?authSource=admin";
 
             var Service = new BookService(MongoDBConnectionString, DatabaseName);
 
@@ -34,9 +35,6 @@ namespace mongo_docker_sample
                     Service.Create(book);
                     var booksAdd = Service.Get();
                     booksAdd.ForEach(Console.WriteLine);
-                    break;
-                case ("help"):
-                    Console.WriteLine("EXEMPLE dotnet run add bookName 10");
                     break;
                 default:
                     var books = Service.Get();
