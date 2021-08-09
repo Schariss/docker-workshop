@@ -7,4 +7,3 @@ WORKDIR /app
 COPY . .
 
 CMD ["bash"]
-© 2021 GitHub, Inc.
