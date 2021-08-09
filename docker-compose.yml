@@ -11,5 +11,6 @@ services:
     ports: 
       - '27017:27017'
     volumes: 
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - $DATABASE_DATA_PATH:/data/db
+    # Ajoutez ici un nouveau service pour votre application C#
+    # Inspirez-vous de votre service mongo
