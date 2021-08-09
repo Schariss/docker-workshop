@@ -11,9 +11,8 @@ services:
     ports: 
       - '27017:27017'
     volumes: 
-      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
       - $DATABASE_DATA_PATH:/data/db
   app:
-    image: 'dw'
+    image: 'nom_de_votre_image_dotnet'
     container_name: 'app'
     restart: 'always'
