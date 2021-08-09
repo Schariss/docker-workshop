@@ -1,15 +1,6 @@
-# docker build . -t <VOTRE_ADRESSE_DE_CONTAINER_REGISTRY>/myapp
-# Publier maintenant votre image sur un registre de conteneurs
-# Voici une liste de registre de conteneur que vous pouvez utiliser
-# - Docker : https://hub.docker.com/
-# - GCP : https://cloud.google.com/container-registry/
-# - Azure : https://azure.microsoft.com/fr-fr/services/container-registry/
-# - AWS : https://aws.amazon.com/fr/ecr/
-# - IBM Watson : https://www.ibm.com/fr-fr/cloud/container-registry/features
-
-# Liens utiles :
-# - https://docs.docker.com/engine/reference/commandline/login/
-# - https://docs.docker.com/engine/reference/commandline/push/
+# docker build . -t myapp
+# docker tag myapp <username>/myapp
+# docker push <username>/myapp
 FROM mcr.microsoft.com/dotnet/sdk:5.0
 
 WORKDIR /app
