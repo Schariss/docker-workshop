@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   database:
-    image: 'mongo'
+    image: 'mongo:4.4.8'
     container_name: 'mongoDB'
     restart: always
     environment: 
@@ -12,3 +12,5 @@ services:
       - '27017:27017'
     volumes: 
       - $DATABASE_DATA_PATH:/data/db
+    # Ajoutez ici un nouveau service pour votre application C#
+    # Inspirez-vous de votre service mongo
