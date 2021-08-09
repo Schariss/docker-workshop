@@ -1,7 +1,6 @@
-# Ajout de l'application dans le docker-compose
+# Ajout de CI avec Github Action :
 
-## But :
-Ajouter notre application C# à docker-compose afin de faire communiquer nos différents services conteneurisés entre-eux.
+!! Important !! 
+Pour faire cette partie vous devez fork ce dépôt.
 
-## Liens utiles :
-    - https://docs.docker.com/compose/reference/
+Une fois cela fait, cliquez sur Action, cherchez "Docker image" et cliquez sur "Set up this workflow"
