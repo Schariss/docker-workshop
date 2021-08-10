@@ -1,0 +1,27 @@
+# docker-compose -f ./docker-compose.sonar.yml up sonar
+# docker-compose -f ./docker-compose.sonar.yml up sonar-scanner
+version: '3.8'
+services:
+  sonar:
+    image: 'sonar'
+    container_name: 'sonar'
+    restart: always
+    ports:
+     - "9000:9000"
+    networks:
+      - sonarNet
+  sonar-scanner:
+    image: sonarsource/sonar-scanner-cli
+    container_name: sonar-scanner
+    depends_on:
+      - sonar
+    environment:
+      - SONAR_LOGIN="1648aa17cc730c104db9a8e57bd4d57b7eeb3f83"
+      - SONAR_HOST_URL="http://sonarqube:9000"
+    volumes:
+      - "./:/usr/src"
+    networks:
+      - sonarNet
+
+networks:
+  sonarNet:
