@@ -46,7 +46,7 @@ jobs:
         run: |
           cd myApp
           dotnet tool install --global dotnet-sonarscanner
-          dotnet sonarscanner begin /o:someorg /k:somekey /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
+          dotnet sonarscanner begin /o:someorg /k:somekey /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/myApp/SonarQube.Analysis.xml
 
       - name: Build
         run: cd myApp && dotnet build
@@ -65,7 +65,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #         with:
           # Location of the scanner metadata report file
-          # scanMetadataReportFile: .scannerwork/report-task.txt
+          scanMetadataReportFile: .scannerwork/report-task.txt
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
