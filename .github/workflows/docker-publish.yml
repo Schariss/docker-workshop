@@ -68,7 +68,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #         with:
           # Location of the scanner metadata report file
-          scanMetadataReportFile: .scannerwork/report-task.txt
+          scanMetadataReportFile: myApp/.sonarqube/out/.sonar/report-task.txt
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
