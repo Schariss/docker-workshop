@@ -49,14 +49,9 @@ jobs:
 
       - name: Build
         run: cd myApp && dotnet build
-
-      - name: Test with the dotnet CLI
-        run: dotnet test --settings coverlet.runsettings --logger:trx
-        env:
-          ASPNETCORE_ENVIRONMENT: Development
-
+        
       - name: Sonarqube end
-        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        run: cd myApp && dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
