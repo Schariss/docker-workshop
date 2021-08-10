@@ -1,28 +1,4 @@
-version: '3.8'
-services:
-  database:
-    image: 'mongo:4.4.8'
-    container_name: 'mongoDB'
-    restart: always
-    environment: 
-      - MONGO_INITDB_DATABASE=$DATABASE_NAME
-      - MONGO_INITDB_ROOT_USERNAME=$DATABASE_USERNAME
-      - MONGO_INITDB_ROOT_PASSWORD=$DATABASE_PASSWORD
-    volumes: 
-      - $DATABASE_DATA_PATH:/data/db
-    networks:
-      - backend
-  app:
-    image: 'myapp'
-    container_name: 'app'
-    restart: always
-    environment:
-      - DATABASE_NAME=$DATABASE_NAME
-      - DATABASE_USERNAME=$DATABASE_USERNAME
-      - DATABASE_PASSWORD=$DATABASE_PASSWORD
-      - DATABASE_HOST=$DATABASE_HOST
-    networks:
-      - backend
-
-networks:
-  backend:
+# Commencer à écrire ici le docker-compose de votre image mongo
+# Liens utiles : 
+  # https://docs.docker.com/compose/reference/
+  # https://hub.docker.com/_/mongo
