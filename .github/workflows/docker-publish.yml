@@ -67,7 +67,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-#         with:
+        with:
           # Additional arguments to the sonar-scanner
           # Set the sonar.projectBaseDir analysis property
           projectBaseDir: ./myApp
@@ -79,7 +79,7 @@ jobs:
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
+#         with:
           # Location of the scanner metadata report file
           # scanMetadataReportFile: .scannerwork/report-task.txt
 
