@@ -39,7 +39,7 @@ jobs:
         with:
           dotnet-version: '5.0.x'
           
-    - name: Install dependencies
+      - name: Install dependencies
         run: dotnet restore
 
       - name: Sonarqube Begin
