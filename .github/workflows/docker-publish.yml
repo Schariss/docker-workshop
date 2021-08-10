@@ -43,9 +43,10 @@ jobs:
         run: cd myApp && dotnet restore
 
       - name: Sonarqube Begin
-        run: | 
-          cd myApp && dotnet tool install --global dotnet-sonarscanner
-          cd myApp && dotnet sonarscanner begin /o:someorg /k:somekey /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
+        run: |
+          cd myApp
+          dotnet tool install --global dotnet-sonarscanner
+          dotnet sonarscanner begin /o:someorg /k:somekey /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
 
       - name: Build
         run: cd myApp && dotnet build
