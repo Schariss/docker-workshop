@@ -33,6 +33,32 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+          
+      - name: Install dependencies
+        run: cd myApp && dotnet restore
+
+      - name: Sonarqube Begin
+        run: | 
+          dotnet tool install --global dotnet-sonarscanner
+          dotnet sonarscanner begin /o:someorg /k:somekey /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
+
+      - name: Build
+        run: dotnet build
+
+      - name: Test with the dotnet CLI
+        run: dotnet test --settings coverlet.runsettings --logger:trx
+        env:
+          ASPNETCORE_ENVIRONMENT: Development
+
+      - name: Sonarqube end
+        run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
       - name: Official SonarQube Scan
         # You may pin to the exact commit or the version.
@@ -50,11 +76,12 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: SonarSource/sonarqube-quality-gate-action@15767f0e4eb489cfdd989dc717fa78c038d0de8a
         uses: SonarSource/sonarqube-quality-gate-action@v1.0.0
+        timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
+#         with:
           # Location of the scanner metadata report file
-          scanMetadataReportFile: .scannerwork/report-task.txt
+          # scanMetadataReportFile: .scannerwork/report-task.txt
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
