@@ -1,7 +1,11 @@
-# Ajout de l'application dans le docker-compose
+# Publication de notre image sur docker-hub (ou autre)
 
-## But :
-Ajouter notre application C# à docker-compose afin de faire communiquer nos différents services conteneurisés entre-eux.
+Fichiers à modifier :
+ - myApp\Dockerfile
+
+ ## But 
+ Publier notre image sur un repo d'images afin de pouvoir l'utiliser dans nos différents environnements.
 
 ## Liens utiles :
-    - https://docs.docker.com/compose/reference/
+- https://docs.docker.com/engine/reference/commandline/login/
+- https://docs.docker.com/engine/reference/commandline/push/
