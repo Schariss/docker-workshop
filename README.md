@@ -1,6 +1,12 @@
-# Ajout de CI avec Github Action :
+# Ajouter une vérification SonarQube dans la pipeline :
 
-!! Important !! 
-Pour faire cette partie vous devez fork ce dépôt.
+Fichiers à modifier :
+    .github\workflows\docker-publish.yml
+    myApp\SonarQube.Analysis.xml
 
-Une fois cela fait, cliquez sur Action, cherchez "Publish Docker Container" et cliquez sur "Set up this workflow"
+## But : 
+Vérifier que notre code passe les tests par défaut de Sonarqube en vigueur pour les applications C#.
+
+## Liens utiles "
+- https://docs.sonarqube.org/latest/analysis/github-integration/
+- https://github.com/SonarSource/sonarqube-quality-gate-action
