@@ -1,5 +1,8 @@
 # Mettre en place un stockage local
 
+Fichier à modifier :
+    - docker-compose.yml
+
 ## But :
 Sauvegarder les données de votre base de donnée Mongo sur la machine hôte pour ne pas tout perdre lors de la suppression d'un container.
 
