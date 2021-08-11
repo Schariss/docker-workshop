@@ -1,4 +1,4 @@
-# Création de l'application C# local (optionnel)
+# Création de l'application C# local
 
 Fichiers à modifier :
     - Dockerfile
