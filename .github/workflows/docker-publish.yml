@@ -1,4 +1,4 @@
-name: Docker
+name: Branch_7
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -32,39 +32,17 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.x'
-          
-      - name: Install dependencies
-        run: cd myApp && dotnet restore
 
-      - name: Sonarqube Begin
-        run: |
-          cd myApp
-          dotnet tool install --global dotnet-sonarscanner
-          dotnet sonarscanner begin /k:docker-workshop /d:sonar.login=${{ secrets.SONAR_TOKEN }} /s:$GITHUB_WORKSPACE/myApp/SonarQube.Analysis.xml
-
-      - name: Build
-        run: cd myApp && dotnet build
-        
-      - name: Sonarqube end
-        run: cd myApp && dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: SonarQube Quality Gate Check
-        # You may pin to the exact commit or the version.
-        # uses: SonarSource/sonarqube-quality-gate-action@15767f0e4eb489cfdd989dc717fa78c038d0de8a
-        uses: SonarSource/sonarqube-quality-gate-action@v1.0.0
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          # Location of the scanner metadata report file
-          scanMetadataReportFile: myApp/.sonarqube/out/.sonar/report-task.txt
+      # AJOUTEZ ICI les instructions pour ajouter SonarQube
+      # 1- Mettez en place une instance de SonarQube ACCESSIBLE DEPUIS LA PIPELINE (exposé sur le web)
+      # 2- Pour dotnet core 
+      #     2.1 - Installez dotnet
+      #     2.2 - Installez les dépendances
+      #     2.3 - Faite un sonar begin (https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-msbuild/)
+      #     2.4 - Construisez votre application
+      #     2.5 - Faite un sonar end
+      # 3- Faite passer à votre code le code quality gate (https://github.com/SonarSource/sonarqube-quality-gate-action )
+      #     3.1 - Votre repport sera situé à myApp/.sonarqube/out/.sonar/report-task.txt
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
