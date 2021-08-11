@@ -1,7 +1,10 @@
-# Ajout de l'application dans le docker-compose
+# Création d'un réseau virtuel privé
+
+Fichiers à modifier :
+    - docker-compose.yml
 
 ## But :
-Ajouter notre application C# à docker-compose afin de faire communiquer nos différents services conteneurisés entre-eux.
+Apprendre à gérer les réseaux virtuel et comment docker-compose peut nous aider à bien agencer les différents services de notre application.
 
 ## Liens utiles :
     - https://docs.docker.com/compose/reference/
