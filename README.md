@@ -1,8 +1,8 @@
 # Conteneurisation de l'application C# Et ajout de notre application dans le docker-compose
 
 Fichier à modifier :
-    - docker-compose.yml
-    - myApp\Dockerfile
+- docker-compose.yml
+- myApp\Dockerfile
 
 ## But :
 Mettre notre application dans un container Docker afin de l'éxécuter sans avoir .NET Core installé.
