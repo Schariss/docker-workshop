@@ -1,8 +1,8 @@
 # Ajouter une vérification SonarQube dans la pipeline :
 
 Fichiers à modifier :
-    .github\workflows\docker-publish.yml
-    myApp\SonarQube.Analysis.xml
+- .github\workflows\docker-publish.yml
+- myApp\SonarQube.Analysis.xml
 
 ## But : 
 Vérifier que notre code passe les tests par défaut de Sonarqube en vigueur pour les applications C#.
